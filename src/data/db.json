@@ -1,0 +1,144 @@
+{
+    "datas": [
+        {
+            "id": 1,
+            "image": "https://cdn.dsmcdn.com/ty1575/prod/QC/20241002/10/49a29abc-c2de-3fb8-adce-b05afcb7dd40/1_org_zoom.jpg",
+            "name": "Merry See",
+            "description": "Örme Kumaş Baskılı Uzun Kollu Pijama Takımı",
+            "price": 350.82
+        },
+        {
+            "id": 2,
+            "image": "https://cdn.dsmcdn.com/mnresize/1200/1800/ty1606/prod/QC/20241125/14/0563b3f5-0454-3e69-b185-86361034c008/1_org_zoom.jpg",
+            "name": "SOLDOY",
+            "description": "Kadın Taba Mini Süet Içi Kürklü Yüksek Kalın Taban Kışlık",
+            "price": 449
+        },
+        {
+            "id": 3,
+            "image": "https://cdn.dsmcdn.com/ty1609/prod/QC/20241202/10/dcd8df82-527e-351e-82ab-37a6e0a90985/1_org_zoom.jpg",
+            "name": "CALLİEL",
+            "description": "Sivilce Ve Siyah Nokta Karşıtı Arındırıcı Salisilik Asit Tonik ",
+            "price": 191.99
+        },
+        {
+            "id": 4,
+            "image": "https://cdn.dsmcdn.com/ty1584/product/media/images/prod/PIM/20241014/14/d20ab829-e939-44e9-96b1-bff962429ea9/1_org_zoom.jpg",
+            "name": "Cream Co.",
+            "description": "Moisturizer | Su Bazlı Nemlendirici Yüz Kremi",
+            "price": 459.9
+        },
+        {
+            "id": 5,
+            "image": "https://cdn.dsmcdn.com/ty1517/product/media/images/prod/QC/20240901/10/f3e3e3e9-fb0f-36bb-9217-56642077c9d4/1_org_zoom.jpg",
+            "name": "RİOMİ",
+            "description": "Ipl Buz Lazer Epilasyon 999.999 Atım Otomatik",
+            "price": 2740.2
+        },
+        {
+            "id": 6,
+            "image": "https://cdn.dsmcdn.com/ty1332/product/media/images/prod/QC/20240527/14/700822d8-20d2-3882-b09b-83d3e1fa1bfd/1_org_zoom.jpg",
+            "name": "Erbatab",
+            "description": "Kırmızı Kore Ginsengi Ekstresi 30 Kapsül",
+            "price": 358.58
+        },
+        {
+            "id": 7,
+            "image": "https://cdn.dsmcdn.com/ty1540/product/media/images/ty1541/prod/QC/20240913/13/9a5cbc3f-40bc-3599-ac38-65aecf0af110/1_org_zoom.jpg",
+            "name": "meyra'nın ayakkabıları",
+            "description": "Kadın Siyah Cilt Bağcık Ve Fermuarlı Postal",
+            "price": 559.9
+        },
+        {
+            "id": 8,
+            "image": "https://cdn.dsmcdn.com/ty1460/product/media/images/prod/QC/20240803/19/df40ebb1-93e9-311d-b1a1-3832dca4ef4f/1_org_zoom.jpg",
+            "name": "Ayax",
+            "description": "Siyah Günlük Kadın Postal Bot ",
+            "price": 499.99
+        },
+        {
+            "id": 9,
+            "image": "https://cdn.dsmcdn.com/ty1482/product/media/images/prod/PIM/20240815/13/b4d5de71-1ce3-4fa2-ae85-a805713d63da/1_org_zoom.jpg",
+            "name": "Luis Bien",
+            "description": "Diş Beyazlatma Seti | Aktif Karbonlu",
+            "price": 349
+        },
+        {
+            "id": 10,
+            "image": "https://cdn.dsmcdn.com/ty1355/product/media/images/prod/QC/20240605/16/eea6720f-ece7-37ec-a173-d822a42d39b9/1_org_zoom.jpg",
+            "name": "KIKO",
+            "description": "Likit Ruj - Unlimited Double Touch 103 Natural Rose 6 ml",
+            "price": 229.9
+        },
+        {
+            "id": 11,
+            "image": "https://cdn.dsmcdn.com/ty1512/product/media/images/prod/QC/20240829/13/a2debae2-93a0-3cbb-8589-f41b2d3f99bc/1_org_zoom.jpg",
+            "name": "The Purest Solutions",
+            "description": "Leke Karşıtı ve Cilt Tonu Eşitleyici Güneş Koruyucu Krem",
+            "price": 599.9
+        },
+        {
+            "id": 12,
+            "image": "https://cdn.dsmcdn.com/ty1481/product/media/images/prod/QC/20240814/15/86465d2c-85d2-3fcf-9a6a-84f8ca395815/1_org_zoom.jpg",
+            "name": "SİLVER HOME",
+            "description": "Mikrofiber 5 Li Dekoratif Cam Bezi",
+            "price": 229.48
+        },
+        {
+            "id": 13,
+            "image": "https://cdn.dsmcdn.com/ty1534/product/media/images/prod/QC/20240910/11/3ac5ddf0-1ede-3861-997d-acdfc8f9a1c5/1_org_zoom.jpg",
+            "name": "Elseve",
+            "description": "Glycolic Gloss Parlaklığı Saça Mühürleyen Laminasyon",
+            "price": 257.9
+        },
+        {
+            "id": 14,
+            "image": "https://cdn.dsmcdn.com/ty1549/product/media/images/ty1549/prod/QC/20240916/21/74b75c5d-6a95-374f-9c6f-f968b4f5afaa/1_org_zoom.jpg",
+            "name": "Serstil",
+            "description": "6 Adet - Büyük Boy Bazaaltı Ve Çekyat Hurç",
+            "price": 279.5
+        },
+        {
+            "id": 15,
+            "image": "https://cdn.dsmcdn.com/ty1599/prod/QC/20241110/11/f80d5ce9-bcb1-39bb-886f-24f7c42784ce/1_org_zoom.jpg",
+            "name": "Safyaşam",
+            "description": "Mix Detox Sirkesi,suyu 250ml",
+            "price": 299
+        },
+        {
+            "id": 16,
+            "image": "https://cdn.dsmcdn.com/ty1550/product/media/images/ty1548/prod/QC/20240916/11/7684bd5a-5f53-3baf-bccb-160dc5e89dfe/1_org_zoom.jpg",
+            "name": "SHE VEC",
+            "description": "Tüm Ciltler İçin Gözenek Sıkılaştırıcı Leke Karşıtı Tonik ",
+            "price": 230.78
+        },
+        {
+            "id": 17,
+            "image": "https://cdn.dsmcdn.com/ty1534/product/media/images/prod/QC/20240910/11/e5f370b8-db73-3e3f-b901-0bce1ac13f96/1_org_zoom.jpg",
+            "name": "Elseve",
+            "description": "L'oréal Paris Dream Long Mükemmel Düz Pürüzsüzleştirici",
+            "price": 200.83
+        },
+        {
+            "id": 18,
+            "image": "https://cdn.dsmcdn.com/ty1483/product/media/images/prod/QC/20240815/11/3d2f1281-efd0-31f8-bf81-400a723236bb/1_org_zoom.jpg",
+            "name": "TBRUSH",
+            "description": "Beyazlatıcı ve Diş Silgisi",
+            "price": 127
+        },
+        {
+            "id": 19,
+            "image": "https://cdn.dsmcdn.com/ty1522/product/media/images/prod/QC/20240903/11/ac2c51a7-f900-3233-b2c0-bfdc05905140/1_org_zoom.jpg",
+            "name": "Kitchen Life",
+            "description": "Ahşap Saplı Mıka Reçellik Sosluk Sofra Sunum Kahvaltı Seti",
+            "price": 124.9
+        },
+        {
+            "id": 20,
+            "image": "https://cdn.dsmcdn.com/ty1506/product/media/images/prod/QC/20240828/12/c5834768-8794-3477-ab4f-14e956fdb182/1_org_zoom.jpg",
+            "name": "Hairens",
+            "description": "Otomatik Saç Maşası 25 mm Ekstra Uzun Başlık",
+            "price": 1507.11
+        }
+    ]
+}
