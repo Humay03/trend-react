@@ -4,11 +4,13 @@ type ProductState = {
     products: Product[]
 }
 
-const ProductContext = createContext<ProductState | null>(null);
+const ProductContext = createContext<ProductState | undefined>({
+    products: [],
+});
 
 export const useProducts = () => {
     const context = useContext(ProductContext);
-    if (!context) return "Contexte ehtiyac var!";
+    if (context == undefined) throw new Error("Contexte ehtiyac var!");
 
     return context;
 }
@@ -37,4 +39,9 @@ export default function ProductProvider({ children }: PropsWithChildren) {
 
 type Product = {
 
+    id: number;
+    image: string;
+    name: string;
+    description: string;
+    price: number
 }
