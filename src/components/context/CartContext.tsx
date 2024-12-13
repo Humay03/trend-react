@@ -43,9 +43,7 @@ export default function CartContextProvider({ children }: { children: ReactNode 
         const existItem = cart.findIndex((ci) => ci.id === item.id);
         if (!cart.length || existItem < 0) {
             setCart((oldState) => [...oldState, { ...item }]);
-        } else {
         }
-
     };
 
 
