@@ -1,4 +1,5 @@
 import { createContext, PropsWithChildren, useContext, useEffect, useState } from "react";
+import { data } from "react-router-dom";
 
 type ProductState = {
     products: Product[]
@@ -27,6 +28,7 @@ export default function ProductProvider({ children }: PropsWithChildren) {
         getProducts().then(data => setProducts(data));
     }, []);
     if (!products.length) return <div>Loading..</div>
+    
     return (
         <ProductContext.Provider value={{
             products

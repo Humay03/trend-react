@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-import { useCartState } from "../context/CartContext";
 
+import { useCartState } from "../context/CartContext";
 
 type Product = {
     id: number;
@@ -16,6 +15,7 @@ type ProductItemProps = {
 
 export default function ProductItem({ product }: ProductItemProps) {
     const { add } = useCartState();
+    
 
     return (
         <article className="w-[230px] border border-[#ccc] rounded-md mb-[20px] ">
@@ -28,13 +28,16 @@ export default function ProductItem({ product }: ProductItemProps) {
                     <h4>{product.description}</h4>
                 </div>
                 <div>
-                    <p>
-                        <Link to={"/"}>{product.price} TL</Link>
-                    </p>
+                    <p>{product.price} TL</p> 
                 </div>
             </div>
-            <div className="felx flex-wrap justify-center text-center">
-                <button onClick={() => add(product)} className="w-[210px] border-2 border-[#f27a1a] pt-[1px] px-[6px] mb-[9px] rounded-[3px] h-[32px] text-[14px]">Sepete Ekle</button>
+            <div className="flex flex-wrap justify-center text-center">
+                <button
+                    onClick={() => add(product)} 
+                    className="w-[210px] border-2 border-[#f27a1a] pt-[1px] px-[6px] mb-[9px] rounded-[3px] h-[32px] text-[14px]"
+                >
+                    Sepete Ekle
+                </button>
             </div>
         </article>
     );

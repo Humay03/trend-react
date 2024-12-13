@@ -7,16 +7,16 @@ type CartItem = {
     name: string;
     description: string;
     price: number;
-    quantity: number;  
+
 };
 
 
 type CartContextType = {
     cart: CartItem[];
     add: (item: CartItem, quantity?: number) => void;
-    count: number;
-    remove: (id: number) => void; 
+    remove: (id: number) => void;
 };
+
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
@@ -32,43 +32,39 @@ export const useCartState = (): CartContextType => {
 
 export default function CartContextProvider({ children }: { children: ReactNode }) {
 
-    const cartLs = JSON.parse(localStorage.getItem('bookstore_cart') || '[]') as CartItem[];
-    const [cart, setCart] = useState<CartItem[]>(cartLs);
+    const cartLs = localStorage.getItem('bookstore_cart');
+    const cartData = cartLs ? JSON.parse(cartLs) : [];
+    const [cart, setCart] = useState<CartItem[]>(cartData);
 
 
-    const addToCart = (item: CartItem, quantity: number = 1) => {
+    const addToCart = (item: CartItem) => {
         if (!item) return;
 
-        const existItem = cart.findIndex(ci => ci.id === item.id);
-        if (existItem < 0) {
-  
-            setCart(oldState => [
-                ...oldState,
-                { ...item, quantity }
-            ]);
+        const existItem = cart.findIndex((ci) => ci.id === item.id);
+        if (!cart.length || existItem < 0) {
+            setCart((oldState) => [...oldState, { ...item }]);
         } else {
- 
-            setCart(oldState =>
-                oldState.map((ci) =>
-                    ci.id === item.id ? { ...ci, quantity: ci.quantity + quantity } : ci
-                )
-            );
         }
+
     };
+
+
 
     const removeFromCart = (id: number) => {
-        setCart(oldState => oldState.filter(item => item.id !== id));
+        setCart((oldState) => oldState.filter((item) => item.id !== id));
     };
 
+
     useEffect(() => {
-        localStorage.setItem('bookstore_cart', JSON.stringify(cart));
+        if (cart.length > 0) {
+            localStorage.setItem('bookstore_cart', JSON.stringify(cart));
+        }
     }, [cart]);
 
     return (
         <CartContext.Provider value={{
             cart,
             add: addToCart,
-            count: cart.length,
             remove: removeFromCart
         }}>
             {children}
