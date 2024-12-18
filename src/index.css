@@ -25,5 +25,20 @@
     background-color: #f27a1a;
     border-color: #f27a1a ; 
   }
+
+  input[type="radio"] {
+    display: inline-block;
+    visibility: visible;
+  
+  }
+  input[type="radio"] {
+  appearance: auto; 
+  width: 17px;
+  height: 17px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 1px solid #ccc; 
+}
+
   
   
