@@ -17,7 +17,7 @@ const elements = [
         name: "Yardim & Destek",
         href: "/"
     }
-]
+];
 
 
 

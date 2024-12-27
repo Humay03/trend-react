@@ -1,21 +1,21 @@
-import { Heart, Search, ShoppingCart, UserRound } from "lucide-react";
+import { CircleUserRound, Heart, Search, ShoppingCart, UserRound } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useProducts } from "../context/ProductContext";
 
 export default function Header() {
-    const { setSearchTerm, searchTerm } = useProducts();  
-    const [inputTerm, setInputTerm] = useState(searchTerm);  
+    const { setSearchTerm, searchTerm } = useProducts();
+    const [inputTerm, setInputTerm] = useState(searchTerm);
 
 
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInputTerm(e.target.value);  
-        setSearchTerm(e.target.value);  
+        setInputTerm(e.target.value);
+        setSearchTerm(e.target.value);
     };
 
-    
+
     const handleSearchSubmit = () => {
-        setSearchTerm(inputTerm);  
+        setSearchTerm(inputTerm);
     };
     return (
         <header className="h-[66px] container mx-auto flex justify-between items-center sticky z-1000">
@@ -36,19 +36,25 @@ export default function Header() {
             </div>
             <div className="flex justify-between w-[300px]">
                 <div className="flex items-center text-[13px]">
-                    <Link to={"login"} className="flex items-center">
+                    <Link to={"login"} className="flex items-center hover:text-[#ff6600]">
                         <UserRound className="w-[16px] h-[16px]" />
                         <p className="pr-[5px] mt-[2px]">Giriş Yap</p>
                     </Link>
                 </div>
                 <div className="flex items-center text-[13px]">
-                    <Link to={"favorites"} className="flex items-center">
+                    <Link to={"admindashboard"} className="flex items-center hover:text-[#ff6600]">
+                        <CircleUserRound className="w-[16px] h-[16px]" />
+                        <p className="pr-[5px] mt-[2px]">Admin</p>
+                    </Link>
+                </div>
+                <div className="flex items-center text-[13px]">
+                    <Link to={"favorites"} className="flex items-center hover:text-[#ff6600]">
                         <Heart className="w-[16px] h-[16px]" />
                         <p className="pr-[5px] mt-[2px]">Favorilerim</p>
                     </Link>
                 </div>
                 <div className="flex items-center text-[13px]">
-                    <Link to={"cartshop"} className="flex items-center">
+                    <Link to={"cartshop"} className="flex items-center hover:text-[#ff6600]">
                         <ShoppingCart className="w-[16px] h-[16px]" />
                         <p className="pr-[5px] mt-[2px]">Sepetim</p>
                     </Link>

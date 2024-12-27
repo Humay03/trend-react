@@ -23,7 +23,7 @@ export default function ProductItem({ product }: ProductItemProps) {
             id={`${product.id}`}
             className="w-[230px] border border-[#ccc] rounded-md ml-[20px] mb-[19px] flex flex-col">
             <div className="h-[267px] relative">
-              
+
                 <button onClick={() =>
                     toggle?.({
                         description: product.description,
@@ -49,11 +49,11 @@ export default function ProductItem({ product }: ProductItemProps) {
                 </div>
             </div>
 
-         
+
             <div className="flex justify-center text-center pt-[10px] pb-[9px]">
                 <button
                     onClick={() => add(product)}
-                    className="w-[210px] border-2 border-[#f27a1a] pt-[1px] px-[6px] rounded-[3px] h-[32px] text-[14px]">
+                    className="w-[210px] border border-[#f27a1a] text-[#ff6600] pt-[1px] px-[6px] rounded-[3px] h-[32px] text-[14px] hover:bg-[#ff6600] hover:text-white transition-colors">
                     Sepete Ekle
                 </button>
             </div>

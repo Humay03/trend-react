@@ -34,7 +34,7 @@ export const useCartState = (): CartContextType => {
 
 export default function CartContextProvider({ children }: { children: ReactNode }) {
 
-    const cartLs = localStorage.getItem('bookstore_cart');
+    const cartLs = localStorage.getItem('productstore_cart');
     const cartData = cartLs ? JSON.parse(cartLs) : [];
     const [cart, setCart] = useState<CartItem[]>(cartData);
     const [favorites, setFavorites] = useState<CartContextType["favorites"]>([]);
@@ -72,7 +72,7 @@ export default function CartContextProvider({ children }: { children: ReactNode 
 
 
     useEffect(() => {
-        localStorage.setItem('bookstore_cart', JSON.stringify(cart));
+        localStorage.setItem('productstore_cart', JSON.stringify(cart));
     }, [cart]);
 
     return (
