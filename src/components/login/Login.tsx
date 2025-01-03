@@ -1,8 +1,25 @@
 import { Google } from "@mui/icons-material";
 import { Facebook } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthProvider";
 
 export default function Login() {
+  const { login } = useAuth()
+
+  const handleFormsubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    if (email !== "" || email !== null || password !== "" || password !== null) {
+      const res = await login(String(email), String(password));
+    }
+
+
+  }
+
   return (
     <div className=" bg-[#f7f7f7] flex flex-col items-center justify-center px-4 py-12 ">
       <div className="text-center mb-6">
@@ -16,13 +33,13 @@ export default function Login() {
         <button className="bg-white w-[205px] h-12 text-[#ff6600] border-b-0 border-r border-t border-l border-[#e6e6e6] relative bottom-0 mr-[5px]">
           Daxil ol
         </button>
-        <button className="w-[205px] h-12 relative bottom-0">
+        <Link to={"/subscribe"}><button className="w-[205px] h-12 relative bottom-0 bg-[#f2f2f2]">
           Abunə ol
-        </button>
+        </button></Link>
       </div>
 
       <div className="w-[415px] bg-white  border border-[#e2e2e2]  p-8">
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleFormsubmit}>
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               E-poçt
@@ -30,6 +47,7 @@ export default function Login() {
             <input
               type="email"
               id="email"
+              name="email"
               className="mt-1 block w-[333px] px-4 py-3 border border-[#ccc] rounded-md  bg-[#fafafa] text-sm"
             />
           </div>
@@ -41,6 +59,7 @@ export default function Login() {
             <input
               type="password"
               id="password"
+              name="password"
               className="mt-1 block w-[333px] px-4 py-3 border border-[#bdbdbd] rounded-md  bg-[#fafafa] text-sm"
             />
           </div>
@@ -53,8 +72,12 @@ export default function Login() {
             type="submit"
             className="w-full h-12 bg-[#ff6600] text-white font-semibold rounded-md hover:bg-[#e65c00] transition-all"
           >
-            DAXİL OL
+            Abunə ol
           </button>
+
+          <div className="flex justify-start mt-[10px]">
+            <p className="text-[14px]">Abunə ol-a klikləyərək<span>Üzvlük Müqaviləsi</span> qəbul edirəm.</p>
+          </div>
         </form>
         <div className="mt-6 space-y-4">
           <div className="flex space-x-4">
@@ -85,6 +108,7 @@ export default function Login() {
         <div className="text-center mt-6 text-xs text-gray-500">
           <p>
             Abunə olmadan verilən sifarişləri izləmək üçün
+
             <Link className="underline" to="/">
               klikleyin
             </Link>

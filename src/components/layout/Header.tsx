@@ -1,12 +1,13 @@
-import { CircleUserRound, Heart, Search, ShoppingCart, UserRound } from "lucide-react";
+import { CircleUserRound, Heart, LogOut, Search, ShoppingCart, UserRound } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useProducts } from "../context/ProductContext";
+import { useAuth } from "../context/AuthProvider";
 
 export default function Header() {
     const { setSearchTerm, searchTerm } = useProducts();
     const [inputTerm, setInputTerm] = useState(searchTerm);
-
+    const { token, logout } = useAuth();
 
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputTerm(e.target.value);
@@ -35,18 +36,21 @@ export default function Header() {
                 </button>
             </div>
             <div className="flex justify-between w-[300px]">
-                <div className="flex items-center text-[13px]">
-                    <Link to={"login"} className="flex items-center hover:text-[#ff6600]">
-                        <UserRound className="w-[16px] h-[16px]" />
-                        <p className="pr-[5px] mt-[2px]">Giriş Yap</p>
-                    </Link>
-                </div>
-                <div className="flex items-center text-[13px]">
-                    <Link to={"admindashboard"} className="flex items-center hover:text-[#ff6600]">
-                        <CircleUserRound className="w-[16px] h-[16px]" />
-                        <p className="pr-[5px] mt-[2px]">Admin</p>
-                    </Link>
-                </div>
+                {!token ? (
+                    <div className="flex items-center text-[13px]">
+                        <Link to={"login"} className="flex items-center hover:text-[#ff6600]">
+                            <UserRound className="w-[16px] h-[16px]" />
+                            <p className="pr-[5px] mt-[2px]">Giriş Yap</p>
+                        </Link>
+                    </div>
+                ) :
+                    (<div className="flex items-center text-[13px]">
+                        <Link to={"admindashboard"} className="flex items-center hover:text-[#ff6600]">
+                            <CircleUserRound className="w-[16px] h-[16px]" />
+                            <p className="pr-[5px] mt-[2px]">Admin</p>
+                        </Link>
+                    </div>)}
+
                 <div className="flex items-center text-[13px]">
                     <Link to={"favorites"} className="flex items-center hover:text-[#ff6600]">
                         <Heart className="w-[16px] h-[16px]" />
@@ -59,6 +63,12 @@ export default function Header() {
                         <p className="pr-[5px] mt-[2px]">Sepetim</p>
                     </Link>
                 </div>
+                {token ? (
+                    <div className="flex items-center text-[13px]  hover:text-[#ff6600]">
+                        <LogOut className="w-[16px] h-[16px]" />
+                        <button onClick={logout} className="pr-[5px] mt-[2px]">Çıkış yap</button>
+                    </div>
+                ) : null}
             </div>
         </header>
     );

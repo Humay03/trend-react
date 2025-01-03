@@ -1,4 +1,18 @@
 {
+    "users": [
+        {
+            "id": 1,
+            "username": "admin",
+            "password": "admin123",
+            "email": "admin@gmail.com"
+        },
+        {
+            "id": 2,
+            "username": "humayahmadova",
+            "password": "humi321",
+            "email": "humay.ahmadova@gmail.com"
+        }
+    ],
     "datas": [
         {
             "id": 1,
