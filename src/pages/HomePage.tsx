@@ -3,11 +3,17 @@ import ProductGrid from "../components/products/ProductGrid";
 import React, { useState } from "react";
 import { Search } from "lucide-react";
 import { useProducts } from "../components/context/ProductContext";
+import { takeValueOfPrice } from "../components/context/utils";
 
 
 export type Marka = {
   marka: string;
   href: string;
+  id: number;
+};
+export type Price = {
+  price: string;
+  value: string;
   id: number;
 };
 
@@ -16,19 +22,25 @@ type ItemsType = {
 };
 
 const markaList: Marka[] = [
-  { id: 1, marka: "U.S Polo Assin", href: "/u.s-polo-assin" },
-  { id: 2, marka: "Bianco Lucci", href: "/bianco-lucci" },
-  { id: 3, marka: "LovelyIstanbul", href: "/lovely-istanbul" },
+  { id: 1, marka: "Cream Co.", href: "/cream.co" },
+  { id: 2, marka: "Erbatab", href: "/erbatab" },
+  { id: 3, marka: "Meyra'nın ayakkabıları", href: "/meyra-nın-ayakkabıları" },
   { id: 4, marka: "CALLİEL", href: "/calliel" },
-  { id: 5, marka: "Under Armour", href: "/under-armour" },
+  { id: 5, marka: "Ayax", href: "/ayax" },
   { id: 6, marka: "Merry See", href: "/merry-see" },
   { id: 7, marka: "SOLDOY", href: "/soldoy" },
-  { id: 8, marka: "Armine", href: "/armine" },
+  { id: 8, marka: "Luis Bien", href: "/luis-bien" },
   { id: 9, marka: "Elseve", href: "/elseve" },
-  { id: 10, marka: "Adidas", href: "/adidas" },
-  { id: 11, marka: "Victoria's Journals", href: "/victorias-journals" },
-  { id: 12, marka: "Tonny Black", href: "/tonny-black" },
+  { id: 10, marka: "KIKO", href: "/kiko" },
+  { id: 11, marka: "The Purest Solutions", href: "/the-purest-solutions" },
+  { id: 12, marka: "SİLVER HOME", href: "/silver-home" },
   { id: 13, marka: "RİOMİ", href: "/riomi" },
+  { id: 14, marka: "Serstil", href: "/serstil" },
+  { id: 15, marka: "Safyaşam", href: "/safyaşam" },
+  { id: 16, marka: "SHE VEC", href: "/she-vec" },
+  { id: 17, marka: "TBRUSH", href: "/tbrush" },
+  { id: 18, marka: "Kitchen Life", href: "/kitchen-life" },
+  { id: 19, marka: "Hairens", href: "/hairens" },
 ];
 const bodyList = [
   { id: 1, beden: "XS" },
@@ -49,27 +61,27 @@ const bodyList = [
   { id: 16, beden: "10-11 Yaş" },
   { id: 17, beden: "Standart" },
 ];
-const priceRanges = [
-  { id: 1, label: "0TL - 90TL", min: 0, max: 90 },
-  { id: 2, label: "90TL - 225TL", min: 90, max: 225 },
-  { id: 3, label: "225TL - 400TL", min: 225, max: 400 },
-  { id: 4, label: "400TL - 900TL", min: 400, max: 900 },
-  { id: 5, label: "900TL - 3000TL", min: 900, max: 3000 },
-  { id: 6, label: "3000TL - 100000TL", min: 3000, max: 100000 },
+const priceRanges: Price[] = [
+  { id: 1, price: "0TL - 90TL", value: "0 - 90" },
+  { id: 2, price: "90TL - 225TL", value: "90 - 225" },
+  { id: 3, price: "225TL - 400TL", value: "225 - 400" },
+  { id: 4, price: "400TL - 900TL", value: "400 - 900" },
+  { id: 5, price: "900TL - 3000TL", value: "900 - 3000" },
+  { id: 6, price: "3000TL - 100000TL", value: "3000 - 100000" },
 ];
 
 
 export default function HomePage() {
 
   const [selectedRadioBtn, setSelectedRadioBtn] = React.useState("");
-  const [minPrice, setMinPrice] = useState<number>();
-  const [maxPrice, setMaxPrice] = useState<number>();
   const isRadioSelected = (value: string): boolean => selectedRadioBtn === value;
   const handleRadioClick = (e: React.ChangeEvent<HTMLInputElement>): void => setSelectedRadioBtn(e.currentTarget.value);
   const { setBrancheckList } = useProducts();
   const [filteredBrands, setFilteredBrands] = useState<Marka[]>(markaList);
   const [filteredBeden, setFilteredBeden] = useState(bodyList);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const { priceCheckList } = useProducts();
+  const values = takeValueOfPrice(priceCheckList);
 
   const handleFilteredBrands = (value: string) => {
     setFilteredBrands(state => {
@@ -89,7 +101,13 @@ export default function HomePage() {
     });
   };
 
-
+  const valueToNumber = () => {
+    priceRanges.map((item) => {
+      const min = Number(item.value.split("-")[0]);
+      const max = Number(item.value.split("-")[1]);
+      return [min, max];
+    });
+  };
 
   return (
     <div className="container mx-auto grid grid-cols-[200px_1fr] border-t-[1px] border-[#ccc]">
@@ -129,18 +147,17 @@ export default function HomePage() {
           <div className="flex">
             <input
               type="number"
-              value={minPrice}
-              onChange={(e) => setMinPrice(Number(e.target.value))}
+              value={valueToNumber}
+              onChange={(e) => {}}
               className="w-[50px] h-[27px] px-[10px] mb-[5px] bg-[#fafafa]"
-              min={0}
+
             />
             <p className="mx-[6px]">-</p>
             <input
               type="number"
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(Number(e.target.value))}
+              value={values ? values[1] : ''}
+              onChange={(e) => { }}
               className="w-[50px] h-[27px] px-[10px] mb-[5px] bg-[#fafafa]"
-              min={0}
             />
             <button
               className="w-[30px] h-[28px] bg-[#dadada] rounded inline-flex items-center text-center px-[6px] ml-[4px] mb-[5px]"
@@ -149,34 +166,42 @@ export default function HomePage() {
               <Search className="w-[14px] h-[14px] text-slate-50" />
             </button>
           </div>
-
-          <ul>
-            {priceRanges.map((range, index) => (
-              <li className="flex my-[5px] pt-[1px]" key={index}>
-                <input
-                  type="radio"
-                  name="priceRange"
-                  value={`radio${index}`}
-                  checked={selectedRadioBtn === `radio${index}`}
-                  onChange={() => {
-                    setMinPrice(range.min);
-                    setMaxPrice(range.max);
-                  }}
-                />
-                <Link to={"/"} className="text-[13px] ml-[6px]">
-                  {range.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <PriceList items={priceRanges} />
         </div>
 
       </div>
       <div className="">
         <ProductGrid />
       </div>
-    </div>
+    </div >
   );
+}
+
+function PriceList({ items }: { items: Price[] }) {
+  const { setPriceCheckList } = useProducts();
+
+  const handleCheckedPrice = (checkedItem: boolean, item: Price) => {
+    setPriceCheckList((state) => {
+      if (checkedItem) return [item];
+      return state.filter((price) => price.id !== item.id)
+    })
+  }
+
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <li className="flex my-[5px] pt-[1px] text-[13px]" key={index}>
+          <input
+            type="radio"
+            name="priceRange"
+            value={item.value}
+            onChange={(e) =>{}}
+          />
+          <span>{item.price}</span>
+        </li>
+      ))}
+    </ul>
+  )
 }
 
 function MarkaList({ items }: ItemsType) {

@@ -1,10 +1,12 @@
 import { Facebook, Google } from "@mui/icons-material";
 import { BsGoogle } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { useAuth } from "../context/AuthProvider";
+import { GenderType, useAuth } from "../context/AuthProvider";
+import { useState } from "react";
 
 export default function Subscribe() {
-    const { login } = useAuth()
+    const { register } = useAuth()
+    const [gender, setGender] = useState<GenderType>(null);
 
     const handleFormsubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -14,7 +16,8 @@ export default function Subscribe() {
         const password = formData.get("password");
 
         if (email !== "" || email !== null || password !== "" || password !== null) {
-            const res = await login(String(email), String(password));
+            await register(String(email), String(password), gender);
+
         }
 
 
@@ -70,8 +73,8 @@ export default function Subscribe() {
                             <label htmlFor="" className="text-[14px]">Cinsiyyət (məcburi deyil)</label>
                         </div>
                         <div className="flex  items-center">
-                            <button className="w-[205px] h-12 bg-[#fafafa] border border-[#e6e6e6]">Qadın</button>
-                            <button className="w-[205px] h-12 bg-[#fafafa] border border-[#e6e6e6]">Kişi</button>
+                            <div className="flex items-center text-center  justify-center cursor-pointer w-[205px] h-12 bg-[#fafafa] border border-[#e6e6e6]" onClick={() => setGender("female")}>Qadın</div>
+                            <div className="flex items-center text-center  justify-center cursor-pointer w-[205px] h-12 bg-[#fafafa] border border-[#e6e6e6]" onClick={() => setGender("male")}>Kişi</div>
                         </div>
                     </div>
                     <div className="flex items-center cursor-pointer">

@@ -21,7 +21,7 @@ export default function ProductItem({ product }: ProductItemProps) {
     return (
         <article key={product.id}
             id={`${product.id}`}
-            className="w-[230px] border border-[#ccc] rounded-md ml-[20px] mb-[19px] flex flex-col">
+            className="w-[230px] border border-[#ccc] rounded-md ml-[20px] mb-[19px] flex flex-col overflow-hidden">
             <div className="h-[267px] relative">
 
                 <button onClick={() =>
@@ -32,7 +32,7 @@ export default function ProductItem({ product }: ProductItemProps) {
                         price: product.price,
                         id: Number(product.id),
                     })}
-                    className="absolute right-0 top-0 cursor-pointer m-[5px] drop-shadow-lg rounded-full flex items-center justify-center w-[40px] h-[40px] bg-[#fafafa]">
+                    className="absolute right-0 top-0 cursor-pointer hover:text-[#ff6600] m-[5px] drop-shadow-lg rounded-full flex items-center justify-center w-[40px] h-[40px] bg-[#fafafa]">
                     <Heart />
                 </button>
 

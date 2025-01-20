@@ -8,7 +8,7 @@ export default function Cart() {
     return (
         <div className="container mx-auto flex flex-wrap mt-[24px] h-[100dvh] ">
             {cart.length === 0 ? (
-                <div className="border-[1px] border-[#e2e2e2] rounded-[8px] flex justify-between text-center w-[1200px] px-[25px] py-[15px] h-[96px] ">
+                <div className="border-[1px] border-[#e2e2e2] rounded-[8px] flex justify-between text-center w-full px-[25px] py-[15px] h-[96px] ">
                     <div className="flex justify-center text-center items-center">
                         <div className="bg-[#fff1e6] rounded-[50%] w-[64px] h-[64px] flex justify-center text-center items-center">
                             <ShoppingCart className="w-[24px] h-[25px] text-[#f27a1a] padding-[20px]" />

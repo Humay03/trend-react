@@ -14,7 +14,7 @@ export default function Login() {
     const password = formData.get("password");
 
     if (email !== "" || email !== null || password !== "" || password !== null) {
-      const res = await login(String(email), String(password));
+      await login(String(email), String(password));
     }
 
 
